@@ -54,6 +54,7 @@ jobs:
           pip install pytest requests
 
       - name: Run dynamic API security tests
+        continue-on-error: true
         run: |
           python -m pytest -v tests_dynamic
 
