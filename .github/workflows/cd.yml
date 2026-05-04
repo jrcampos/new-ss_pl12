@@ -41,6 +41,19 @@ jobs:
           sleep 5
           curl --fail http://127.0.0.1:5001/
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install dynamic test dependencies
+        run: |
+          pip install pytest requests
+
+      - name: Run dynamic API security tests
+        run: |
+          python -m pytest -v tests_dynamic
+
       - name: Show logs if needed
         if: failure()
         run: |
