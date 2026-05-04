@@ -41,8 +41,11 @@ jobs:
           sleep 5
           curl --fail http://127.0.0.1:5001/
 
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.10"
 
